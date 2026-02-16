@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: outback-ai
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: outback-ai
+  template:
+    metadata:
+      labels:
+        app: outback-ai
+    spec:
+      containers:
+        - name: backend
+          image: outback-ai:latest
+          ports:
+            - containerPort: 5000
